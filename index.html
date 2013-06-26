@@ -1,33 +1,78 @@
----
-layout: layout
-title: "Phollow.me"
----
+<!DOCTYPE html>
+<html>
 
-<div class="container">
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Mysite : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Mysite</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/dchen12/mysite">View on GitHub</a>
+
+          <h1 id="project_title">Mysite</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/dchen12/mysite/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/dchen12/mysite/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>`</p><div>
     {% for post in paginator.posts %}
-        <article>
-            <time datetime="{{ post.date }}">{{ post.date | date: "%b %e, %Y" }}</time>
-            <h2 class="entry-title">
-                <a title="{{ post.title }}" href="{{ post.url }}/">{{ post.title }}</a>
+         {{ post.date | date: "%b %e, %Y" }}<h2>
+<a name="-----------------posttitle-------------" class="anchor" href="#-----------------posttitle-------------"><span class="octicon octicon-link"></span></a>
+                <a title="{{ post.title }}" href="%7B%7B%20post.url%20%7D%7D/">{{ post.title }}</a>
             </h2>
         <p>{{ post.content | strip_html | truncate: 250 }}</p>
         <p>
-            <a title="{{ post.title }}" href="{{ post.url }}/">Read post</a>
+            <a title="{{ post.title }}" href="%7B%7B%20post.url%20%7D%7D/">Read post</a>
         </p>
-        </article>
+         
     {% endfor %}
+
+<pre><code>&lt;p class="archives"&gt;
+    {% if paginator.previous_page %}
+      {% if paginator.previous_page == 1 %}
+      &lt;a class="next" href="/" title="Recent posts"&gt;Recent&amp;nbsp;posts&amp;nbsp;&amp;raquo;&lt;/a&gt;
+      {% else %}
+      &lt;a class="next" href="/page/{{ paginator.previous_page }}/" title="Recent posts"&gt;Recent&amp;nbsp;posts&amp;nbsp;&amp;raquo;&lt;/a&gt;
+      {% endif %}
+    {% endif %}
+
+    {% if paginator.next_page %} 
+    &lt;a class="prev" href="/page/{{ paginator.next_page }}/" title="Older posts"&gt;&amp;laquo;&amp;nbsp;Older&amp;nbsp;posts&lt;/a&gt;
+    {% endif %}
+&lt;/p&gt;
+</code></pre>
+
+<p></p>
+</div>`
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Mysite maintained by <a href="https://github.com/dchen12">dchen12</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
     
-    <p class="archives">
-        {% if paginator.previous_page %}
-          {% if paginator.previous_page == 1 %}
-          <a class="next" href="/" title="Recent posts">Recent&nbsp;posts&nbsp;&raquo;</a>
-          {% else %}
-          <a class="next" href="/page/{{ paginator.previous_page }}/" title="Recent posts">Recent&nbsp;posts&nbsp;&raquo;</a>
-          {% endif %}
-        {% endif %}
-    
-        {% if paginator.next_page %} 
-        <a class="prev" href="/page/{{ paginator.next_page }}/" title="Older posts">&laquo;&nbsp;Older&nbsp;posts</a>
-        {% endif %}
-    </p>
-</div>
+
+  </body>
+</html>
